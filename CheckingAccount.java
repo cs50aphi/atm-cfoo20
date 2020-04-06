@@ -24,21 +24,17 @@ public class CheckingAccount
         return balance;
     }
     // withdraw
-    public double withdraw(double amount)
+    public void withdraw(double amount)
     {
         // take user input
         // substract input from total balance
         balance = balance - amount;
-        // return new balance
-        return balance;
     }
     // deposit
-    public double deposit(double amount)
+    public void deposit(double amount)
     {
         // take user input
         // add input to balance
         balance = balance + amount;
-        // return new balance
-        return balance;
     }
 }

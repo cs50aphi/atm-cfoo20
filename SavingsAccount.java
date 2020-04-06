@@ -24,28 +24,22 @@ public class SavingsAccount
         return balance;
     }
     // withdraw
-    public double withdraw(double amount)
+    public void withdraw(double amount)
     {
         // take user input
         // substract input from total balance
         balance = balance - amount;
-        // return new balance
-        return balance;
     }
     // deposit
-    public double deposit(double amount)
+    public void deposit(double amount)
     {
         // take user input
         // add input to balance
         balance = balance + amount;
-        // return new balance
-        return balance;
     }
-    public double interest(double rate)
+    public void interest(double rate)
     {
         // multiple current balance by interest rate
-        balance = balance * rate;
-        // return new balance
-        return balance;
+        balance = balance * (100 + rate / 100);
     }
 }

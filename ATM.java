@@ -35,16 +35,17 @@ public class ATM
                     double amount = kb.nextDouble();
                     if (account == 1)
                     {
-                        double newBalance = checking.deposit(amount);
+                        checking.deposit(amount);
                     }
                     if (account == 2)
                     {
-                        double newBalance = savings.deposit(amount);
+                        savings.deposit(amount);
                     }
                     // print balance of both accounts
-                    System.out.println(accountBalance);
+                    System.out.println(accountBalance(checking, savings));
                     // add 1 to number of transactions
                     trans++;
+                    break;
                 // if withdraw
                     // ask which account
                     // ask how much user wants to withdraw
@@ -73,11 +74,12 @@ public class ATM
                 case "Q":
                     // set quit to true
                     quit = true;
+                    break;
             }
         } while (!quit);
     }
     // private helper class to print acccount balances
-    private String accountBalance()
+    private static String accountBalance(CheckingAccount checking, SavingsAccount savings)
     {
         // get balance from both accounts
         double check = checking.checkBalance();
