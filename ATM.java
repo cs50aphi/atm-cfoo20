@@ -56,14 +56,21 @@ public class ATM
                     // ask how much user wants to withdraw
                     System.out.print("How many credits do you want to withdraw? ");
                     double amount = kb.nextDouble();
+                    // check if enough in account
                     // subtract ammount from account
                     if (account == 1)
                     {
-                        checking.withdraw(amount);
+                        if (checking.checkBalance() >= amount)
+                        {
+                            checking.withdraw(amount);
+                        }
                     }
                     if (account == 2)
                     {
-                        savings.withdraw(amount);
+                        if (savings.checkBalance() >= amount)
+                        {
+                            savings.withdraw(amount);
+                        }
                     }
                     // print balance of both accounts
                     // add 1 to number of transactions
