@@ -15,22 +15,23 @@ public class ATM
         boolean quit = false;
         // count # of transactions
         int trans = 0;
+        String option;
         // repeat until user enters q or Q
         do
         {
             // present menu of options
-            System.out.print("Do you want to: (D)eposit, (W)ithdraw, (C)heck Balance, (T)ransfer, (Q)uit?");
-            String option = kb.nextLine();
+            System.out.print("Do you want to: (D)eposit, (W)ithdraw, (C)heck Balance, (T)ransfer, (Q)uit? ");
+            option = kb.nextLine();
             switch (option)
             {
                 // if deposit
                 case "d":
                 case "D":
                     // ask which account
-                    System.out.print("Deposit to: (1)Checking or (2)Savings?");
+                    System.out.print("Deposit to: (1)Checking or (2)Savings? ");
                     int account = kb.nextInt();
                     // ask how much user wants to deposit
-                    System.out.print("How many credits do you want to deposit?");
+                    System.out.print("How many credits do you want to deposit? ");
                     // add amount to account
                     double amount = kb.nextDouble();
                     if (account == 1)
@@ -47,9 +48,23 @@ public class ATM
                     trans++;
                     break;
                 // if withdraw
+                case "w":
+                case "W":
                     // ask which account
+                    System.out.print("Deposit to: (1)Checking or (2)Savings? ");
+                    int account = kb.nextInt();
                     // ask how much user wants to withdraw
+                    System.out.print("How many credits do you want to withdraw? ");
+                    double amount = kb.nextDouble();
                     // subtract ammount from account
+                    if (account == 1)
+                    {
+                        checking.withdraw(amount);
+                    }
+                    if (account == 2)
+                    {
+                        savings.withdraw(amount);
+                    }
                     // print balance of both accounts
                     // add 1 to number of transactions
                 // if check balance
@@ -72,6 +87,10 @@ public class ATM
                 // if quit
                 case "q":
                 case "Q":
+                    // print balance of both accounts
+                    System.out.println(accountBalance(checking, savings));
+                    // say goodbye to user
+                    System.out.println("Thank you for your business. Goodbye!");
                     // set quit to true
                     quit = true;
                     break;
@@ -84,7 +103,7 @@ public class ATM
         // get balance from both accounts
         double check = checking.checkBalance();
         double save = savings.checkBalance();
-        String end = "Your checking account has " + check + " credits.\n" + "Your savings account has " + save + "credits.\n";
+        String end = "Your checking account has " + check + " credits.\n" + "Your savings account has " + save + " credits.\n";
         return end;
     }
 }
