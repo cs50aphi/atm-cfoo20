@@ -73,21 +73,55 @@ public class ATM
                         }
                     }
                     // print balance of both accounts
+                    System.out.println(accountBalance(checking, savings));
                     // add 1 to number of transactions
+                    trans++;
+                    break;
                 // if check balance
+                case "c":
+                case "C":
                     // print balance of both accounts
+                    System.out.println(accountBalance(checking, savings));
                     // add 1 to number of transactions
+                    trans++;
+                    break;
                 // if transfer
+                case "t":
+                case "T":
                     // ask checking to savings or vice versa
+                    System.out.print("Transfer from: (1)Checking to Savings or (2)Savings to Checking?");
+                    int account = kb.nextInt();
                     // ask how much
+                    System.out.print("Amount to transfer?");
+                    double amount = kb.nextDouble();
+                    // check if enough in account
                     // if checking to savings
-                        // withdraw user amount from checking
-                        // deposit user amount to savings
+                    if (account == 1)
+                    {
+                        if (checking.checkBalance() >= amount)
+                        {
+                            // withdraw user amount from checking
+                            checking.withdraw(amount);
+                            // deposit user amount to savings
+                            savings.deposit(amount);
+                        }
+                    }
                     // if savings to checking
-                        // withdraw user amount from savings
-                        // deposit user amount to checkings
+                    if (account == 2)
+                    {
+                        if (savings.checkBalance() >= amount)
+                        {
+                            // withdraw user amount from savings
+                            savings.withdraw(amount);
+                            // deposit user amount to checkings
+                            checking.deposit(amount);
+                        }
+                    }
                     // print balance of both accounts
+                    System.out.println(accountBalance(checking, savings));
                     // add 1 to number of transactions
+                    trans++;
+                    break;
                 // if # of transactions is a multiple of 5
                     // calculate interest
                     // print balance of both accounts
