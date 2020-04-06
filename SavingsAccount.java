@@ -40,6 +40,6 @@ public class SavingsAccount
     public void interest(double rate)
     {
         // multiple current balance by interest rate
-        balance = balance * (100 + rate / 100);
+        balance = balance + balance * (rate / 100);
     }
 }

@@ -22,6 +22,10 @@ public class ATM
             // present menu of options
             System.out.print("Do you want to: (D)eposit, (W)ithdraw, (C)heck Balance, (T)ransfer, (Q)uit? ");
             option = kb.nextLine();
+            // which account for transaction
+            int account = 0;
+            // how much many in transaction
+            double amount = 0;
             switch (option)
             {
                 // if deposit
@@ -29,11 +33,11 @@ public class ATM
                 case "D":
                     // ask which account
                     System.out.print("Deposit to: (1)Checking or (2)Savings? ");
-                    int account = kb.nextInt();
+                    account = kb.nextInt();
                     // ask how much user wants to deposit
                     System.out.print("How many credits do you want to deposit? ");
                     // add amount to account
-                    double amount = kb.nextDouble();
+                    amount = kb.nextDouble();
                     if (account == 1)
                     {
                         checking.deposit(amount);
@@ -52,10 +56,10 @@ public class ATM
                 case "W":
                     // ask which account
                     System.out.print("Deposit to: (1)Checking or (2)Savings? ");
-                    int account = kb.nextInt();
+                    account = kb.nextInt();
                     // ask how much user wants to withdraw
                     System.out.print("How many credits do you want to withdraw? ");
-                    double amount = kb.nextDouble();
+                    amount = kb.nextDouble();
                     // check if enough in account
                     // subtract ammount from account
                     if (account == 1)
@@ -90,10 +94,10 @@ public class ATM
                 case "T":
                     // ask checking to savings or vice versa
                     System.out.print("Transfer from: (1)Checking to Savings or (2)Savings to Checking?");
-                    int account = kb.nextInt();
+                    account = kb.nextInt();
                     // ask how much
                     System.out.print("Amount to transfer?");
-                    double amount = kb.nextDouble();
+                    amount = kb.nextDouble();
                     // check if enough in account
                     // if checking to savings
                     if (account == 1)
@@ -122,9 +126,6 @@ public class ATM
                     // add 1 to number of transactions
                     trans++;
                     break;
-                // if # of transactions is a multiple of 5
-                    // calculate interest
-                    // print balance of both accounts
                 // if quit
                 case "q":
                 case "Q":
@@ -136,6 +137,15 @@ public class ATM
                     quit = true;
                     break;
             }
+            // if # of transactions is a multiple of 5
+            if (trans % 5 == 0 && !quit)
+                {
+                    // calculate interest
+                    System.out.println("Interest calculated!");
+                    savings.interest(10);
+                    // print balance of both accounts
+                    System.out.println(accountBalance(checking, savings));
+                }
         } while (!quit);
     }
     // private helper class to print acccount balances
