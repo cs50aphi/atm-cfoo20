@@ -18,6 +18,22 @@ public class CheckingAccount
 
     // Methods
     // check balance
+    public double checkBalance()
+    {
+        // return amount in Checking Account
+    }
     // withdraw
+    public double withdraw()
+    {
+        // take user input
+        // substract input from total balance
+        // return new balance
+    }
     // deposit
+    public double deposit()
+    {
+        // take user input
+        // add input to balance
+        // return new balance
+    }
 }
