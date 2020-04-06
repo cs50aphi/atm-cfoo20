@@ -20,40 +20,59 @@ public class ATM
         {
             // present menu of options
             System.out.print("Do you want to: (D)eposit, (W)ithdraw, (C)heck Balance, (T)ransfer, (Q)uit?");
-            char option = kb.nextLine();
+            String option = kb.nextLine();
             switch (option)
             {
-            // if deposit
-                // ask which account
-                // ask how much user wants to deposit
-                // add amount to account
-                // print balance of both accounts
-                // add 1 to number of transactions
-            // if withdraw
-                // ask which account
-                // ask how much user wants to withdraw
-                // subtract ammount from account
-                // print balance of both accounts
-                // add 1 to number of transactions
-            // if check balance
-                // print balance of both accounts
-                // add 1 to number of transactions
-            // if transfer
-                // ask checking to savings or vice versa
-                // ask how much
-                // if checking to savings
-                    // withdraw user amount from checking
-                    // deposit user amount to savings
-                // if savings to checking
-                    // withdraw user amount from savings
-                    // deposit user amount to checkings
-                // print balance of both accounts
-                // add 1 to number of transactions
-            // if # of transactions is a multiple of 5
-                // calculate interest
-                // print balance of both accounts
-            // if quit
-                // set quit to true
+                // if deposit
+                case "d":
+                case "D":
+                    // ask which account
+                    System.out.print("Deposit to: (1)Checking or (2)Savings?");
+                    int account = kb.nextInt();
+                    // ask how much user wants to deposit
+                    System.out.print("How many credits do you want to deposit?");
+                    // add amount to account
+                    double amount = kb.nextDouble();
+                    if (account == 1)
+                    {
+                        double newBalance = checking.deposit(amount);
+                    }
+                    if (account == 2)
+                    {
+                        double newBalance = savings.deposit(amount);
+                    }
+                    // print balance of both accounts
+                    System.out.println(accountBalance);
+                    // add 1 to number of transactions
+                    trans++;
+                // if withdraw
+                    // ask which account
+                    // ask how much user wants to withdraw
+                    // subtract ammount from account
+                    // print balance of both accounts
+                    // add 1 to number of transactions
+                // if check balance
+                    // print balance of both accounts
+                    // add 1 to number of transactions
+                // if transfer
+                    // ask checking to savings or vice versa
+                    // ask how much
+                    // if checking to savings
+                        // withdraw user amount from checking
+                        // deposit user amount to savings
+                    // if savings to checking
+                        // withdraw user amount from savings
+                        // deposit user amount to checkings
+                    // print balance of both accounts
+                    // add 1 to number of transactions
+                // if # of transactions is a multiple of 5
+                    // calculate interest
+                    // print balance of both accounts
+                // if quit
+                case "q":
+                case "Q":
+                    // set quit to true
+                    quit = true;
             }
         } while (!quit);
     }
