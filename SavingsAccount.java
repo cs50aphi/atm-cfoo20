@@ -6,12 +6,12 @@ public class SavingsAccount
 
     // Constructors
     // default balance
-    public CheckingAccount()
+    public SavingsAccount()
     {
         balance = 10.00;
     }
     // user specified starting balance
-    public CheckingAccount(int b)
+    public SavingsAccount(int b)
     {
         balance = b;
     }
@@ -21,24 +21,31 @@ public class SavingsAccount
     public double checkBalance()
     {
         // return amount in Checking Account
+        return balance;
     }
     // withdraw
-    public double withdraw()
+    public double withdraw(double amount)
     {
         // take user input
         // substract input from total balance
+        balance = balance - amount;
         // return new balance
+        return balance;
     }
     // deposit
-    public double deposit()
+    public double deposit(double amount)
     {
         // take user input
         // add input to balance
+        balance = balance + amount;
         // return new balance
+        return balance;
     }
-    public double interest()
+    public double interest(double rate)
     {
         // multiple current balance by interest rate
+        balance = balance * rate;
         // return new balance
+        return balance;
     }
 }

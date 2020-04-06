@@ -21,19 +21,24 @@ public class CheckingAccount
     public double checkBalance()
     {
         // return amount in Checking Account
+        return balance;
     }
     // withdraw
-    public double withdraw()
+    public double withdraw(double amount)
     {
         // take user input
         // substract input from total balance
+        balance = balance - amount;
         // return new balance
+        return balance;
     }
     // deposit
-    public double deposit()
+    public double deposit(double amount)
     {
         // take user input
         // add input to balance
+        balance = balance + amount;
         // return new balance
+        return balance;
     }
 }
