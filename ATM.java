@@ -45,4 +45,13 @@ public class ATM
         // if quit
             // set quit to true
     }
+    // private helper class to print acccount balances
+    private String accountBalance()
+    {
+        // get balance from both accounts
+        double check = checking.checkBalance();
+        double save = savings.checkBalance();
+        String end = "Your checking account has " + check + " credits.\n" + "Your savings account has " + save + "credits.\n";
+        return end;
+    }
 }
