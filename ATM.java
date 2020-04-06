@@ -21,7 +21,7 @@ public class ATM
         {
             // present menu of options
             System.out.print("Do you want to: (D)eposit, (W)ithdraw, (C)heck Balance, (T)ransfer, (Q)uit? ");
-            option = kb.nextLine();
+            option = kb.next();
             // which account for transaction
             int account = 0;
             // how much many in transaction
@@ -47,7 +47,7 @@ public class ATM
                         savings.deposit(amount);
                     }
                     // print balance of both accounts
-                    System.out.println(accountBalance(checking, savings));
+                    accountBalance(checking, savings);
                     // add 1 to number of transactions
                     trans++;
                     break;
@@ -77,7 +77,7 @@ public class ATM
                         }
                     }
                     // print balance of both accounts
-                    System.out.println(accountBalance(checking, savings));
+                    accountBalance(checking, savings);
                     // add 1 to number of transactions
                     trans++;
                     break;
@@ -85,7 +85,7 @@ public class ATM
                 case "c":
                 case "C":
                     // print balance of both accounts
-                    System.out.println(accountBalance(checking, savings));
+                    accountBalance(checking, savings);
                     // add 1 to number of transactions
                     trans++;
                     break;
@@ -93,10 +93,10 @@ public class ATM
                 case "t":
                 case "T":
                     // ask checking to savings or vice versa
-                    System.out.print("Transfer from: (1)Checking to Savings or (2)Savings to Checking?");
+                    System.out.print("Transfer from: (1)Checking to Savings or (2)Savings to Checking? ");
                     account = kb.nextInt();
                     // ask how much
-                    System.out.print("Amount to transfer?");
+                    System.out.print("Amount to transfer? ");
                     amount = kb.nextDouble();
                     // check if enough in account
                     // if checking to savings
@@ -122,7 +122,7 @@ public class ATM
                         }
                     }
                     // print balance of both accounts
-                    System.out.println(accountBalance(checking, savings));
+                    accountBalance(checking, savings);
                     // add 1 to number of transactions
                     trans++;
                     break;
@@ -130,7 +130,7 @@ public class ATM
                 case "q":
                 case "Q":
                     // print balance of both accounts
-                    System.out.println(accountBalance(checking, savings));
+                    accountBalance(checking, savings);
                     // say goodbye to user
                     System.out.println("Thank you for your business. Goodbye!");
                     // set quit to true
@@ -144,17 +144,16 @@ public class ATM
                     System.out.println("Interest calculated!");
                     savings.interest(10);
                     // print balance of both accounts
-                    System.out.println(accountBalance(checking, savings));
+                    accountBalance(checking, savings);
                 }
         } while (!quit);
     }
     // private helper class to print acccount balances
-    private static String accountBalance(CheckingAccount checking, SavingsAccount savings)
+    private static void accountBalance(CheckingAccount checking, SavingsAccount savings)
     {
         // get balance from both accounts
         double check = checking.checkBalance();
         double save = savings.checkBalance();
-        String end = "Your checking account has " + check + " credits.\n" + "Your savings account has " + save + " credits.\n";
-        return end;
+        System.out.println("Your checking account has " + check + " credits.\n" + "Your savings account has " + save + " credits.\n");
     }
 }
